@@ -1,0 +1,22 @@
+id: jenkins-panel-detect
+
+info:
+  name: Jenkins panel detect
+  author: hanlaomo
+  severity: info
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/"
+    matchers-condition: or
+    matchers:
+      - type: regex
+        regex:
+          - <span class="jenkins_ver"><a href="https://jenkins\.io/">Jenkins ver\. ([\d.]+)
+        part: body  
+        
+       - type: word
+        words:
+          - "X-Jenkins"
+        part: header
