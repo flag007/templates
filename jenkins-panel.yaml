@@ -16,7 +16,7 @@ requests:
           - <span class="jenkins_ver"><a href="https://jenkins\.io/">Jenkins ver\. ([\d.]+)
         part: body  
         
-       - type: word
+      - type: word
         words:
           - "X-Jenkins"
         part: header
