@@ -10,10 +10,12 @@ requests:
     path:
       - "{{BaseURL}}/"
     matchers-condition: or 
+    matchers:
       - type: regex
         regex:
           - <span class="jenkins_ver"><a href="https://jenkins\.io/">Jenkins ver\. ([\d.]+)
         part: body
+        
     matchers:
       - type: word
         words:
