@@ -2,13 +2,18 @@ id: jenkins-panel-detect
 
 info:
   name: Jenkins panel detect
-  author: laomo
+  author: hanglaomo
   severity: info
 
 requests:
   - method: GET
     path:
       - "{{BaseURL}}/"
+    matchers-condition: or 
+      - type: regex
+        regex:
+          - <span class="jenkins_ver"><a href="https://jenkins\.io/">Jenkins ver\. ([\d.]+)
+        part: body
     matchers:
       - type: word
         words:
