@@ -1,0 +1,25 @@
+id: marathon-panel-detect
+
+info:
+  name: Marathon Panel Detect
+  author: laomo
+  severity: low
+
+requests:
+  - method: GET
+    path:
+      - '{{BaseURL}}/ui/'
+      - '{{BaseURL}}:8080/ui/'
+      - '{{BaseURL}}:8443/ui/'
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - 'Marathon'
+      - type: status
+        status:
+          - 200
+      - type: word
+        words:
+          - 'X-Marathon-Leader'
+        part: header
