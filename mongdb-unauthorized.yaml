@@ -9,6 +9,10 @@ requests:
   - method: GET
     path:
       - "{{BaseURL}}:27017"
+      - "{{BaseURL}}:27018"
+      - "{{BaseURL}}:27019"
+      - "{{BaseURL}}:28017"
+      - "{{BaseURL}}:27217"
     matchers-condition: and
     matchers:
       - type: word
