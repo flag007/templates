@@ -1,0 +1,20 @@
+id: mongdb-unauthorized
+
+info:
+  name: Mongdb Unauthorized
+  author: laomo
+  severity: high
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}:27017"
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "It looks like you are trying to access MongoDB over HTTP on the native driver port."
+        part: body
+      - type: status
+        status:
+          - 200
