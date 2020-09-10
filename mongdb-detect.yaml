@@ -1,9 +1,9 @@
-id: mongdb-unauthorized
+id: mongdb-detect
 
 info:
-  name: Mongdb Unauthorized
+  name: Mongdb detect
   author: laomo
-  severity: high
+  severity: info
 
 requests:
   - method: GET
