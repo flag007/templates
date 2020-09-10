@@ -3,7 +3,7 @@ id: mongdb-detect
 info:
   name: Mongdb detect
   author: laomo
-  severity: info
+  severity: low
 
 requests:
   - method: GET
