@@ -1,0 +1,42 @@
+id: springboot-heapdump
+
+info:
+  name: Detect the exposure of Springboot heapdump
+  author: that_juan_ & dwisiswant0
+  severity: medium
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/actuator/env"
+      - "{{BaseURL}}/actuator/heapdump"
+      - "{{BaseURL}}/env"
+      - "{{BaseURL}}/heapdump"
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "method"
+          - "spring"
+          - "TYPE"
+          - "system"
+          - "database"
+          - "cron"
+          - "reloadByURL"
+          - "JMXConfigurator"
+          - "JMImplementation"
+          - "EnvironmentManager"
+          - "org.springframework.boot.loader"
+        condition: or
+      - type: status
+        status:
+          - 200
+      - type: word
+        words:
+          - "X-Application-Context"
+          - "application/json"
+          - "application/vnd.spring-boot.actuator"
+          - "hprof"
+        condition: or
+        part: header
