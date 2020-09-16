@@ -2,7 +2,7 @@ id: springboot-heapdump
 
 info:
   name: Detect the exposure of Springboot heapdump
-  author: that_juan_ & dwisiswant0
+  author: laomo
   severity: medium
 
 requests:
