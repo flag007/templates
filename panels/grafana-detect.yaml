@@ -9,6 +9,7 @@ requests:
   - method: GET
     path:
       - "{{BaseURL}}/login"
+      - "{{BaseURL}}:3000/login"
     matchers:
       - type: word
         words:
